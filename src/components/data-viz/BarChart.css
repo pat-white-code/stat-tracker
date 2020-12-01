@@ -1,4 +1,15 @@
 .bar{
   color: black;
-  fill: black;
+  fill: steelblue;
+  transition: 500ms;
+}
+
+.bravo {
+  fill:seagreen;
+  transition: 500ms;
+}
+
+.danger{
+  fill: orangered;
+  transition: 500ms;
 }

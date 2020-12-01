@@ -1,37 +1,23 @@
-import React from 'react';
-import BarChart from '../data-viz/BarChart';
-
-const data = [
-  {day: 1,
-  calories: 4500
-  },
-  {day: 2,
-  calories: 3500
-  },
-  {day: 3,
-  calories: 1500
-  },
-  {day: 4,
-  calories: 2000
-  },
-  {day: 5,
-  calories: 2500
-  }
-]
+import React, {useState} from 'react';
+import CaloriesBurned from '../CaloriesBurned';
 
 const Dashboard = () => {
+  const [calorieGoal, setCalorieGoal] = useState(3000);
+  const handleCalorieChange = e => {
+    setCalorieGoal(e.target.value)
+  }
   return (
     <div>
-      <h1>Calories Burned this Month</h1>
-      <svg height="400" width="600">
-        <BarChart 
-          x={50}
-          y={50}
-          height={300} 
-          width={500}
-          data={data}
-        />
-      </svg>
+      <select name="calorie-goal" id="calorie-goal" onChange={handleCalorieChange}>
+        <option value="500">500 Calories</option>
+        <option value="1000">1000 Calories</option>
+        <option value="1500">1500 Calories</option>
+        <option value="2000">2000 Calories</option>
+        <option value="2500">2500 Calories</option>
+        <option value="3000">3000 Calories</option>
+        <option value="4000">4000 Calories</option>
+      </select>
+      <CaloriesBurned calorieGoal={calorieGoal } />
     </div>
   )
 }
