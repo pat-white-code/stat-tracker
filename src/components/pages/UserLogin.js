@@ -41,7 +41,7 @@ const UserLogin = () => {
               Existing User
             </Button>
               {userType === 'existing-user' && (
-                <input class={existingUser} type='text' autoFocus placeholder='Enter Email Address'></input>
+                <input className={existingUser} type='text' autoFocus placeholder='Enter Email Address'></input>
               )}
             <Button actionButton='actionButton'>
               Continue
