@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import CaloriesBurned from '../CaloriesBurned';
 
 const Dashboard = () => {
-  const [calorieGoal, setCalorieGoal] = useState(3000);
+  const [calorieGoal, setCalorieGoal] = useState(1500);
   const handleCalorieChange = e => {
     setCalorieGoal(e.target.value)
   }
   return (
     <div>
-      <select name="calorie-goal" id="calorie-goal" onChange={handleCalorieChange}>
+      <select name="calorie-goal" id="calorie-goal" value={calorieGoal} onChange={handleCalorieChange}>
         <option value="500">500 Calories</option>
         <option value="1000">1000 Calories</option>
         <option value="1500">1500 Calories</option>

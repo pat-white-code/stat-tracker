@@ -7,6 +7,7 @@ import { meetsGoal } from '../../snippets/meetsGoal';
 
 const BarChart = props => {
   const {width, height, x, y, data, goal} = props;
+  const yMax = d3.max(data.map(d=> d.calories_burned));
 
   const xScale = useMemo(()=> 
     d3
@@ -20,8 +21,8 @@ const BarChart = props => {
     d3
       .scaleLinear()
       .range([height, 0])
-      .domain([0, 3000]),
-      [height]
+      .domain([0, yMax]),
+      [height, yMax]
   )
 
   return (
