@@ -26,11 +26,15 @@ import * as d3 from 'd3';
 // ]
 
 const CaloriesBurned = props => {
-  const [caloriesBurned, setCaloriesBurned] = useState([]);
-  
+  const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
+
   useEffect(() => {
-    d3.csv('/data/calories_burned_jan.csv').then(d => {
-      setCaloriesBurned(d)
+    d3.csv('/data/calories_burned_jan.csv', d=>({
+      date: d.date,
+      calories_burned: +d.calories_burned
+      }
+    )).then(d => {
+      setDataCaloriesBurned(d)
     })
   }, [])
 
@@ -44,7 +48,7 @@ const CaloriesBurned = props => {
             y={50}
             height={300} 
             width={500}
-            data={caloriesBurned}
+            data={dataCaloriesBurned}
             goal={calorieGoal}
           />
         </svg>

@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import * as d3 from 'd3';
 import './BarChart.css';
-import {meetsGoal} from '../../snippets/meetsGoal'
+import Axis from './Axis';
+import { meetsGoal } from '../../snippets/meetsGoal';
+// import {meetsGoal} from '../../snippets/meetsGoal'
 
 const BarChart = props => {
   const {width, height, x, y, data, goal} = props;
@@ -9,7 +11,7 @@ const BarChart = props => {
   const xScale = useMemo(()=> 
     d3
       .scaleBand()
-      .rangeRound([0, width])
+      .range([0, width])
       .domain(data.map(d => d.date))
       .padding(.3),
       [data, width]
@@ -17,8 +19,8 @@ const BarChart = props => {
   const yScale = useMemo(()=> 
     d3
       .scaleLinear()
-      .rangeRound([0, height])
-      .domain([0, 5000]),
+      .range([height, 0])
+      .domain([0, 3000]),
       [height]
   )
 
@@ -29,12 +31,14 @@ const BarChart = props => {
         return (
           <rect 
           width={xScale.bandwidth()} 
-          height={yScale(calories_burned)}
+          height={height - yScale(calories_burned)}
           x={xScale(date)} 
-          y={height - yScale(calories_burned)} 
-          className={'bar'}
+          y={yScale(calories_burned)} 
+          className={meetsGoal(calories_burned, goal, 1000, 'bravo', 'danger', 'bar' )}
           />)
       })}
+      <Axis x={0} y={0} type='Left' scale={yScale} />
+      <Axis x={0} y={height} type='Bottom' scale={xScale} />
     </g>
   )
 }
