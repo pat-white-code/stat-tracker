@@ -1,0 +1,32 @@
+.bar{
+  color: black;
+  fill: steelblue;
+  transition: 200ms;
+  &:hover{
+    fill: saturate(steelblue, 20%);
+    cursor: pointer;
+  }
+}
+
+.bravo {
+  fill:seagreen;
+  transition: 200ms;
+  &:hover{
+    fill: saturate(seagreen, 20%);
+    cursor: pointer;
+  }
+}
+
+.danger{
+  fill: orangered;
+  transition: 200ms;
+  &:hover{
+    fill: saturate(orangered, 20%);
+    cursor: pointer;
+  }
+}
+
+.line {
+  stroke: rgb(173, 216, 230);
+  stroke-width: 1px;
+}
