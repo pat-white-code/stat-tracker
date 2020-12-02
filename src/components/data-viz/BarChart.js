@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import * as d3 from 'd3';
-import './BarChart.css'
+import './BarChart.css';
+import {meetsGoal} from '../../snippets/meetsGoal'
 
 const BarChart = props => {
   const {width, height, x, y, data, goal} = props;
@@ -9,9 +10,9 @@ const BarChart = props => {
     d3
       .scaleBand()
       .rangeRound([0, width])
-      .domain([0, 1, 2, 3, 4, 5])
+      .domain(data.map(d => d.date))
       .padding(.3),
-      [width]
+      [data, width]
   )
   const yScale = useMemo(()=> 
     d3
@@ -23,18 +24,17 @@ const BarChart = props => {
 
   return (
     <g transform = {`translate(${x}, ${y})`}>
-      {data.map(data => (
-        <rect 
+      {data.map(data => {
+        const {calories_burned, date} = data;
+        return (
+          <rect 
           width={xScale.bandwidth()} 
-          height={yScale(data.burned)}
-          x={xScale(data.day)} 
-          y={height - yScale(data.burned)} 
-          className={
-            `${data.burned > goal ? 'bravo' : 'bar'}
-            ${data.burned < goal - 1000 ? 'danger' : 'bar'}`
-            }
-          />
-      ))}
+          height={yScale(calories_burned)}
+          x={xScale(date)} 
+          y={height - yScale(calories_burned)} 
+          className={'bar'}
+          />)
+      })}
     </g>
   )
 }

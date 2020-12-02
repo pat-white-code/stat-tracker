@@ -27,7 +27,7 @@ import * as d3 from 'd3';
 
 const CaloriesBurned = props => {
   const [caloriesBurned, setCaloriesBurned] = useState([]);
-  let data;
+  
   useEffect(() => {
     d3.csv('/data/calories_burned_jan.csv').then(d => {
       setCaloriesBurned(d)
