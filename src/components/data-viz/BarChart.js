@@ -38,6 +38,7 @@ const BarChart = props => {
           className={meetsGoal(calories_burned, goal, 1000, 'bravo', 'danger', 'bar' )}
           />)
       })}
+      <line x1={0} y1={yScale(goal)} x2={width} y2={yScale(goal)} className='line' />
       <Axis x={0} y={0} type='Left' scale={yScale} />
       <Axis x={0} y={height} type='Bottom' scale={xScale} />
     </g>

@@ -13,3 +13,7 @@
   fill: orangered;
   transition: 500ms;
 }
+
+.line {
+  stroke: green
+}
