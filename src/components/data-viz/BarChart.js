@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import './BarChart.scss';
 import Axis from './Axis';
 import { meetsGoal } from '../../snippets/meetsGoal';
+import Line from './Line';
 // import {meetsGoal} from '../../snippets/meetsGoal'
 
 const BarChart = props => {
@@ -27,7 +28,7 @@ const BarChart = props => {
 
   return (
     <g transform = {`translate(${x}, ${y})`}>
-      <line x1={0} y1={yScale(goal)} x2={width} y2={yScale(goal)} className='line' />
+      <Line x1={0} y1={yScale(goal)} x2={width} y2={yScale(goal)} className='line' />
       {data.map(data => {
         const {calories_burned, date} = data;
         return (
