@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import CaloriesBurned from '../CaloriesBurned';
+import NutriPie from '../NutriPie';
 
 const Dashboard = () => {
   const [calorieGoal, setCalorieGoal] = useState(1500);
@@ -18,6 +19,7 @@ const Dashboard = () => {
         <option value="4000">4000 Calories</option>
       </select>
       <CaloriesBurned calorieGoal={calorieGoal } />
+      <NutriPie />
     </div>
   )
 }

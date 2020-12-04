@@ -42,12 +42,12 @@ const CaloriesBurned = props => {
   return (
     <div>
       <h1>Calories Burned this Month</h1>
-        <svg height="400" width="1000">
+        <svg height="600" width="1000">
           <BarChart 
             x={50}
             y={50}
-            height={300} 
-            width={800}
+            height={500} 
+            width={900}
             data={dataCaloriesBurned}
             goal={calorieGoal}
           />
