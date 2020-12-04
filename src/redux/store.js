@@ -5,13 +5,14 @@ import state from './state'
 import sagas from './sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+const sagaMiddleWare = createSagaMiddleWare()
 
 const store = createStore(
   reducers,
   state,
-  compose(applyMiddleware(createSagaMiddleWare), composeWithDevTools())
+  compose(applyMiddleware(sagaMiddleWare), composeWithDevTools())
 )
 
-createSagaMiddleWare.run(sagas);
+sagaMiddleWare.run(sagas);
 
 export default store
