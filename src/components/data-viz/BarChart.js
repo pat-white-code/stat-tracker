@@ -22,8 +22,8 @@ const BarChart = props => {
     d3
       .scaleLinear()
       .range([height, 0])
-      .domain([0, yMax]),
-      [height, yMax]
+      .domain([0, Math.max(yMax, goal)]),
+      [height, yMax, goal]
   )
 
   return (
