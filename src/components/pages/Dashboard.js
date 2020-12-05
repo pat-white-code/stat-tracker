@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import CaloriesBurned from '../CaloriesBurned';
 import NutriPie from '../NutriPie';
 
-const Dashboard = () => {
+const Dashboard = props => {
+  const {loadImages} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
   const handleCalorieChange = e => {
     setCalorieGoal(e.target.value)
@@ -20,6 +21,7 @@ const Dashboard = () => {
       </select>
       <CaloriesBurned calorieGoal={calorieGoal } />
       <NutriPie />
+      <button onClick={loadImages}>Get Inspired</button>
     </div>
   )
 }
