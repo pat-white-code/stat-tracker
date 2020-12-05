@@ -11,3 +11,7 @@ export const setImages = images => {
 export const setErrors = error => (
   {type: IMAGES.FAIL, payload: error}
 )
+
+export const badRequest = () => (
+  {type: 'BAD_REQUEST'}
+)
