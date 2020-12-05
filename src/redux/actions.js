@@ -7,3 +7,7 @@ export const loadImages = () => {
 export const setImages = images => {
   return {type: IMAGES.SUCCESS, payload: images}
 }
+
+export const setErrors = error => (
+  {type: IMAGES.FAIL, payload: error}
+)

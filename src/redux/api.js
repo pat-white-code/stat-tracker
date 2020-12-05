@@ -12,3 +12,14 @@ export const fetchImages = async() => {
     throw new Error(err)
   }
 }
+
+export const makeBadCall = async() => {
+  try {
+    const res = await axios.get('https://api.unsplash.com/photos/random/?client_id=null&count=30&orientation=squarish')
+    const data = res.data;
+    return data;
+  }
+  catch(err) {
+    throw new Error(err)
+  }
+}

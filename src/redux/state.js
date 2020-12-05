@@ -1,5 +1,7 @@
 const state = {
-  images: []
+  images: [],
+  loading: false,
+  error: null
 }
 
 export default state;
