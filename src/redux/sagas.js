@@ -25,8 +25,7 @@ function* badRequest() {
   }
   catch(err) {
     console.log(err)
-    // yield put(setErrors(err))
-    yield put(setErrors('ERROR'))
+    yield put(setErrors(err.message))
   }
 }
 
