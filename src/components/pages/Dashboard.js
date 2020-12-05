@@ -3,6 +3,7 @@ import CaloriesBurned from '../CaloriesBurned';
 import NutriPie from '../NutriPie';
 import ScatterPlot from '../data-viz/ScatterPlot';
 import DataPoint from '../data-viz/DataPoint';
+import ImgGrid from '../ImgGrid';
 
 const Dashboard = props => {
   const {loadImages, badRequest, images} = props;
@@ -24,23 +25,21 @@ const Dashboard = props => {
       <CaloriesBurned calorieGoal={calorieGoal } />
       <NutriPie />
       {images.length > 0 && (
-        <svg width="800" height="800">
-          <ScatterPlot 
-            y={50} 
-            x={50} 
-            width={600}
-            height={600}
-            data={images} 
-            dataPoint = {({x, y, url}) => <DataPoint url={url} x={x} y={y} />}
-            />
-        </svg>
+        <div>
+          <button onClick={loadImages}>Get New Images</button>
+          <svg width="1000" height="500">
+            <ScatterPlot 
+              y={50} 
+              x={50} 
+              width={900}
+              height={400}
+              data={images} 
+              dataPoint = {({x, y, url}) => <DataPoint url={url} x={x} y={y} />}
+              />
+          </svg>
+          <ImgGrid images={images} />
+        </div>
       )}
-      {images.length > 0 && images.map(i => (
-        <>
-          <img src={i.urls.small} alt={i.description} />
-          <caption>{i.description}</caption>
-        </>
-      ))}
       <button onClick={loadImages}>Get Inspired</button>
       <button onClick={badRequest}>Make Bad Request</button>
     </div>
