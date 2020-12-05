@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import CaloriesBurned from '../CaloriesBurned';
 import NutriPie from '../NutriPie';
+import ScatterPlot from '../data-viz/ScatterPlot';
+import DataPoint from '../data-viz/DataPoint';
 
 const Dashboard = props => {
-  const {loadImages, badRequest, images, loadImgData} = props;
+  const {loadImages, badRequest, images} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
   const handleCalorieChange = e => {
     setCalorieGoal(e.target.value)
@@ -22,7 +24,16 @@ const Dashboard = props => {
       <CaloriesBurned calorieGoal={calorieGoal } />
       <NutriPie />
       {images.length > 0 && (
-        <button onClick={loadImgData}>Analyze Images</button>
+        <svg width="800" height="800">
+          <ScatterPlot 
+            y={50} 
+            x={50} 
+            width={600}
+            height={600}
+            data={images} 
+            dataPoint = {({x, y, url}) => <DataPoint url={url} x={x} y={y} />}
+            />
+        </svg>
       )}
       {images.length > 0 && images.map(i => (
         <>
