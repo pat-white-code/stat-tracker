@@ -3,7 +3,7 @@ import CaloriesBurned from '../CaloriesBurned';
 import NutriPie from '../NutriPie';
 
 const Dashboard = props => {
-  const {loadImages, badRequest, images} = props;
+  const {loadImages, badRequest, images, loadImgData} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
   const handleCalorieChange = e => {
     setCalorieGoal(e.target.value)
@@ -21,7 +21,10 @@ const Dashboard = props => {
       </select>
       <CaloriesBurned calorieGoal={calorieGoal } />
       <NutriPie />
-      {images && images.map(i => (
+      {images.length > 0 && (
+        <button onClick={loadImgData}>Analyze Images</button>
+      )}
+      {images.length > 0 && images.map(i => (
         <>
           <img src={i.urls.small} alt={i.description} />
           <caption>{i.description}</caption>

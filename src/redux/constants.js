@@ -3,3 +3,9 @@ export const IMAGES = {
   SUCCESS: 'IMAGES_SUCCESS',
   FAIL: 'IMAGES_FAIL'
 }
+
+export const IMG_DATA = {
+  LOAD: 'IMG_DATA_LOAD',
+  SUCCESS: 'IMG_DATA_SUCCESS',
+  FAIL: 'IMG_DATA_FAIL'
+}

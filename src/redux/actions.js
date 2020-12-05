@@ -1,4 +1,4 @@
-import { IMAGES } from './constants';
+import { IMAGES, IMG_DATA } from './constants';
 
 export const loadImages = () => {
   return {type: IMAGES.LOAD}
@@ -15,3 +15,7 @@ export const setErrors = error => (
 export const badRequest = () => (
   {type: 'BAD_REQUEST'}
 )
+
+export const loadImgData = () => ({
+  type: IMG_DATA.LOAD
+})
