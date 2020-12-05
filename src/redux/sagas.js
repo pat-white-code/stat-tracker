@@ -23,8 +23,10 @@ function* badRequest() {
     const images = yield call(makeBadCall)
     yield put(setImages(images))
   }
-    catch(err) {
-    yield put(setErrors(JSON.stringify(err)))
+  catch(err) {
+    console.log(err)
+    // yield put(setErrors(err))
+    yield put(setErrors('ERROR'))
   }
 }
 

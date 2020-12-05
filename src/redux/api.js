@@ -15,7 +15,7 @@ export const fetchImages = async() => {
 
 export const makeBadCall = async() => {
   try {
-    const res = await axios.get('https://api.unsplash.com/photos/random/?client_id=null&count=30&orientation=squarish')
+    const res = await axios.get('https://api.unsplash.com/photos/random/?client_id=NULL&count=30&orientation=squarish')
     const data = res.data;
     return data;
   }
