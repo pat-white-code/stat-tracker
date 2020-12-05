@@ -9,6 +9,8 @@ const images = (state = [], action) => {
   }
 }
 
+
+
 export default combineReducers({
   images
 })
