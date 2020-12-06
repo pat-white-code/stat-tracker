@@ -5,7 +5,7 @@ import DataPoint from './DataPoint';
 
 
 const Scatterplot = props => {
-  const {width, height, data, dataPoint, x, y} = props;
+  const {width, height, data, x, y} = props;
   const maxX = d3.max(data.map(d => d.likes))
   const maxY = d3.max(data.map(d => d.downloads))
 
