@@ -34,7 +34,6 @@ const Dashboard = props => {
               width={900}
               height={400}
               data={images} 
-              dataPoint = {({x, y, url, likes, downloads}) => <DataPoint likes={likes} downloads={downloads}url={url} x={x} y={y} />}
               />
           </svg>
           <ImgGrid images={images} />

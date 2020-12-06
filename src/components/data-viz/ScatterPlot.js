@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import * as d3 from 'd3';
 import Axis from './Axis';
+import DataPoint from './DataPoint';
 
 
 const Scatterplot = props => {
@@ -26,7 +27,7 @@ const Scatterplot = props => {
   return (
     <g transform={`translate(${x}, ${y})`}>
         {data.map((d) => (
-          dataPoint({likes: d.likes, downloads: d.downloads, x: xScale(d.likes), y: yScale(d.downloads), url:d.urls.small})
+          <DataPoint likes={d.likes} downloads={d.downloads} x={xScale(d.likes)} y={yScale(d.downloads)} url={d.urls.small} />
         ))}
         <Axis x={0} y={0} type='Left' scale={yScale} />
         <Axis x={0} y={height} scale={xScale} type="Bottom" />
