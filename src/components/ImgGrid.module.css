@@ -1,12 +1,12 @@
 .gridContainer{
   display: grid;
-  grid-gap: 5px;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+
 }
 
 .gridItem {
   overflow: hidden;
-  height: 400px;
-  width: 400px;
-  border: red;
+  height: 300px;
+  width: 300px;
 }
