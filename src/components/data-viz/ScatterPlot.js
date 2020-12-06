@@ -26,7 +26,7 @@ const Scatterplot = props => {
   return (
     <g transform={`translate(${x}, ${y})`}>
         {data.map((d) => (
-          dataPoint({x: xScale(d.likes), y: yScale(d.downloads), url:d.urls.small})
+          dataPoint({likes: d.likes, downloads: d.downloads, x: xScale(d.likes), y: yScale(d.downloads), url:d.urls.small})
         ))}
         <Axis x={0} y={0} type='Left' scale={yScale} />
         <Axis x={0} y={height} scale={xScale} type="Bottom" />

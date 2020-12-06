@@ -16,7 +16,7 @@ const Circle = styled.circle`
 `
 
 const DataPoint = props => {
-  const {x, y, url} = props;
+  const {x, y, url, likes, downloads} = props;
   const [r, setR] = useState(5)
 
   const handleMouseEnter = () => {
@@ -31,7 +31,7 @@ const DataPoint = props => {
     <Tooltip title={
       <React.Fragment>
         <img src={url} alt={'img'} height="100" width="100" ></img>
-        <caption>Likes: {x}, Downloads: {y}</caption>
+        <caption>Likes: {likes}, Downloads: {downloads}</caption>
       </React.Fragment>} arrow>
 
       <Circle onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} cx={x} cy={y} r={r} />
