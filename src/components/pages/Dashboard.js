@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import ButtonSpinner from '../../containers/ButtonSpinner';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +51,7 @@ const Dashboard = props => {
       {images.length > 0 && (
         <div>
           <button onClick={loadImages}>Get New Images</button>
+          <ButtonSpinner />
           <FormControl className={classes.formControl}>
             <InputLabel id='img-data-display'>Data Display</InputLabel>
             <Select
