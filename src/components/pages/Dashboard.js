@@ -2,12 +2,18 @@ import React, {useState} from 'react';
 import CaloriesBurned from '../CaloriesBurned';
 import NutriPie from '../NutriPie';
 import ScatterPlot from '../data-viz/ScatterPlot';
-import DataPoint from '../data-viz/DataPoint';
+import TimeLine from '../data-viz/TimeLine';
 import ImgGrid from '../ImgGrid';
 
 const Dashboard = props => {
   const {loadImages, badRequest, images} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
+  const [ imgDataDisplay, setImgDataDisplay ] = useState('scatter')
+  
+  const handleImgDataDisplayChange = (e) => {
+    setImgDataDisplay(e.target.value)
+  }
+
   const handleCalorieChange = e => {
     setCalorieGoal(e.target.value)
   }
@@ -29,6 +35,15 @@ const Dashboard = props => {
           <button onClick={loadImages}>Get New Images</button>
           <svg width="1000" height="500">
             <ScatterPlot 
+              y={50} 
+              x={50} 
+              width={900}
+              height={400}
+              data={images} 
+              />
+          </svg>
+          <svg width="1000" height="500">
+            <TimeLine 
               y={50} 
               x={50} 
               width={900}
