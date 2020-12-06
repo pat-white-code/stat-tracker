@@ -4,12 +4,29 @@ import NutriPie from '../NutriPie';
 import ScatterPlot from '../data-viz/ScatterPlot';
 import TimeLine from '../data-viz/TimeLine';
 import ImgGrid from '../ImgGrid';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 const Dashboard = props => {
+  const classes = useStyles();
   const {loadImages, badRequest, images} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
   const [ imgDataDisplay, setImgDataDisplay ] = useState('scatter')
-  
+
   const handleImgDataDisplayChange = (e) => {
     setImgDataDisplay(e.target.value)
   }
@@ -33,7 +50,20 @@ const Dashboard = props => {
       {images.length > 0 && (
         <div>
           <button onClick={loadImages}>Get New Images</button>
-          <svg width="1000" height="500">
+          <FormControl className={classes.formControl}>
+            <InputLabel id='img-data-display'>Data Display</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={imgDataDisplay}
+              onChange={handleImgDataDisplayChange}
+            >
+              <MenuItem value={'scatter'}>Scatter Plot</MenuItem>
+              <MenuItem value={'timeline'}>TimeLine</MenuItem>
+            </Select>
+          </FormControl>
+          {imgDataDisplay === 'scatter' ? (
+            <svg width="1000" height="500">
             <ScatterPlot 
               y={50} 
               x={50} 
@@ -42,7 +72,8 @@ const Dashboard = props => {
               data={images} 
               />
           </svg>
-          <svg width="1000" height="500">
+          ) : (
+            <svg width="1000" height="500">
             <TimeLine 
               y={50} 
               x={50} 
@@ -51,6 +82,7 @@ const Dashboard = props => {
               data={images} 
               />
           </svg>
+          )}
           <ImgGrid images={images} />
         </div>
       )}
