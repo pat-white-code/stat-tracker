@@ -5,7 +5,16 @@ const caloriesData = (state = [], action) =>{
     case CALORIES.SUCCESS:
       return action.payload
     case CALORIES.ADD:
-      return [...state, action.payload]
+      // if this date already exists in the array, increment the calories_burned. otherwise create new item in array;
+      // for performance issues, data should be refactored to object for instant lookup.
+      let stateCopy = [...state];
+      let index = state.findIndex(data => data.date === action.payload.date);
+      if(index !== -1) {
+        stateCopy[index].calories_burned += action.payload.calories_burned;
+        return stateCopy;
+      } else {
+        return [...state, action.payload]
+      }
     default:
       return state;
   }
