@@ -36,7 +36,7 @@ const CaloriesBurned = props => {
   useEffect(()=> {
     loadCalories()
   }, [])
-  
+
   // const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
 
   // useEffect(() => {
@@ -52,19 +52,22 @@ const CaloriesBurned = props => {
   // const {calorieGoal} = props
   return (
     <div>
-      {/* <h1>Calories Burned this Month</h1>
-        {calories.data.length > 0 && 
-          <svg height="600" width="1000">
-            <BarChart 
-              x={50}
-              y={50}
-              height={500} 
-              width={900}
-              data={calories.data}
-              goal={calorieGoal}
-            />
-          </svg>
-        } */}
+      <h1>Calories Burned this Month</h1>
+        {caloriesData.length > 0 && 
+          <>
+            <svg height="600" width="1000">
+              <BarChart 
+                x={50}
+                y={50}
+                height={500} 
+                width={900}
+                data={caloriesData}
+                goal={calorieGoal}
+              />
+            </svg>
+            <button>Burn 500 Calories</button>
+          </>
+        }
     </div>
   );
 };

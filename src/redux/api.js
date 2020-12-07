@@ -39,7 +39,7 @@ export const makeBadCall = async() => {
 export const fetchCaloriesData = async() => {
   try{
     const caloriesData = await d3.csv('/data/calories_burned_jan.csv', d=>({
-      date: new Date(d.date),
+      date: d.date,
       calories_burned: +d.calories_burned
       }))
     return caloriesData

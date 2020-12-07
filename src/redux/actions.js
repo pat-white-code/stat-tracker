@@ -1,4 +1,5 @@
 import { IMAGES, IMG_DATA, CALORIES } from './constants';
+import caloriesError from './reducers/caloriesError';
 
 export const loadImages = () => {
   return {type: IMAGES.LOAD}
@@ -23,9 +24,15 @@ export const loadImgData = () => ({
 export const loadCalories = () => {
   return {type: CALORIES.LOAD}
 }
+
 export const setCalories = calorieData => {
   return {type: CALORIES.SUCCESS, payload: calorieData}
 }
+
 export const setCaloriesError = err => {
   return {type: CALORIES.FAIL, payload: err}
 }
+
+export const addCaloriesData = caloriesData => ({
+  type: CALORIES.ADD, payload: caloriesData
+})
