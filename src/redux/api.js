@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as d3 from 'd3';
 
 
 export const fetchImagesByUser = async(userId) => {
@@ -31,6 +32,18 @@ export const makeBadCall = async() => {
     return data;
   }
   catch(err) {
+    throw new Error(err)
+  }
+}
+
+export const fetchCaloriesData = async() => {
+  try{
+    const caloriesData = await d3.csv('/data/calories_burned_jan.csv', d=>({
+      date: new Date(d.date),
+      calories_burned: +d.calories_burned
+      }))
+    return caloriesData
+  } catch(err) {
     throw new Error(err)
   }
 }
