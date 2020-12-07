@@ -1,4 +1,4 @@
-import { IMAGES, IMG_DATA } from './constants';
+import { IMAGES, IMG_DATA, CALORIES } from './constants';
 
 export const loadImages = () => {
   return {type: IMAGES.LOAD}
@@ -19,3 +19,13 @@ export const badRequest = () => (
 export const loadImgData = () => ({
   type: IMG_DATA.LOAD
 })
+
+export const loadCalories = () => {
+  return {type: CALORIES.LOAD}
+}
+export const setCalories = calorieData => {
+  return {type: CALORIES.SUCCESS, payload: calorieData}
+}
+export const setCaloriesError = err => {
+  return {type: CALORIES.FAIL, payload: err}
+}
