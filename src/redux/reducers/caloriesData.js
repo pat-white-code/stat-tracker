@@ -1,9 +1,9 @@
 import { CALORIES } from '../constants';
 
-const caloriesData = (state = {}, action) =>{
+const caloriesData = (state = [], action) =>{
   switch(action.type) {
     case CALORIES.SUCCESS:
-      return {...state, data: action.payload};
+      return action.payload
     default:
       return state;
   }

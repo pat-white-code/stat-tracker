@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import BarChart from './data-viz/BarChart';
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 
 // const data = [
 //   {day: 1,
@@ -26,32 +26,43 @@ import * as d3 from 'd3';
 // ]
 
 const CaloriesBurned = props => {
-  const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
+  const {
+    calories,
+    loadCalories,
+    calorieGoal
+  } = props;
 
-  useEffect(() => {
-    d3.csv('/data/calories_burned_jan.csv', d=>({
-      date: d.date,
-      calories_burned: +d.calories_burned
-      }
-    )).then(d => {
-      setDataCaloriesBurned(d)
-    })
+  useEffect(()=> {
+    loadCalories()
   }, [])
+  // const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
 
-  const {calorieGoal} = props
+  // useEffect(() => {
+  //   d3.csv('/data/calories_burned_jan.csv', d=>({
+  //     date: d.date,
+  //     calories_burned: +d.calories_burned
+  //     }
+  //   )).then(d => {
+  //     setDataCaloriesBurned(d)
+  //   })
+  // }, [])
+
+  // const {calorieGoal} = props
   return (
     <div>
-      <h1>Calories Burned this Month</h1>
-        <svg height="600" width="1000">
-          <BarChart 
-            x={50}
-            y={50}
-            height={500} 
-            width={900}
-            data={dataCaloriesBurned}
-            goal={calorieGoal}
-          />
-        </svg>
+      {/* <h1>Calories Burned this Month</h1>
+        {calories.data.length > 0 && 
+          <svg height="600" width="1000">
+            <BarChart 
+              x={50}
+              y={50}
+              height={500} 
+              width={900}
+              data={calories.data}
+              goal={calorieGoal}
+            />
+          </svg>
+        } */}
     </div>
   );
 };

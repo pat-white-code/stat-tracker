@@ -2,11 +2,9 @@ const state = {
   images: [],
   loading: false,
   error: null,
-  calories: {
-    loading: false,
-    error: null,
-    data: []
-  }
+  caloriesLoading: false,
+  caloriesError: null,
+  caloriesData: []
 }
 
 export default state;

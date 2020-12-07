@@ -1,13 +1,13 @@
 import { CALORIES } from '../constants';
 
-const caloriesLoad = (state = {}, action) =>{
+const caloriesLoad = (state = false, action) =>{
   switch(action.type) {
     case CALORIES.LOAD:
-      return {...state, load: true};
+      return true;
     case CALORIES.SUCCESS:
-      return {...state, load: false};;
+      return false;
     case CALORIES.FAIL:
-      return {...state, load: false};;
+      return false
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CaloriesBurned from '../CaloriesBurned';
+import CaloriesBurned from '../../containers/CaloriesBurned';
 import NutriPie from '../NutriPie';
 import ScatterPlot from '../data-viz/ScatterPlot';
 import TimeLine from '../data-viz/TimeLine';

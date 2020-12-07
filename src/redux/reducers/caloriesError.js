@@ -1,9 +1,9 @@
 import { CALORIES } from '../constants';
 
-const caloriesError = (state = {}, action) =>{
+const caloriesError = (state = null, action) =>{
   switch(action.type) {
     case CALORIES.SUCCESS:
-      return {...state, error: null};
+      return null
     case CALORIES.FAIL:
       return action.payload;
     default:

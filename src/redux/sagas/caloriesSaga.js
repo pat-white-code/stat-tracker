@@ -1,6 +1,6 @@
 import { loadCalories, setCalories, setCaloriesError } from '../actions';
 import { CALORIES } from '../constants';
-const { takeEvery, call, put } = require("redux-saga/effects");
+import { takeEvery, call, put } from "redux-saga/effects";
 
 function* caloriesWatcher() {
   yield takeEvery(CALORIES.LOAD, caloriesLoader)
