@@ -11,7 +11,7 @@ function* imagesWatcher() {
 function* imagesLoadSaga() {
   try { 
     const images = yield call(fetchImages)
-  yield put(setImages(images))
+    yield put(setImages(images))
   }
   catch(err) {
     yield put(setErrors(JSON.stringify(err)))

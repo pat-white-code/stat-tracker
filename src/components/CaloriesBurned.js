@@ -1,29 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BarChart from './data-viz/BarChart';
-// import * as d3 from 'd3';
-
-// const data = [
-//   {day: 1,
-//   burned: 4500,
-//   consumed: 2000
-//   },
-//   {day: 2,
-//   burned: 3500,
-//   consumed: 2000
-//   },
-//   {day: 3,
-//   burned: 1500,
-//   consumed: 2000
-//   },
-//   {day: 4,
-//   burned: 2000,
-//   consumed: 2000
-//   },
-//   {day: 5,
-//   burned: 2500,
-//   consumed: 2000
-//   }
-// ]
 
 const CaloriesBurned = props => {
   const {
@@ -37,25 +13,20 @@ const CaloriesBurned = props => {
     loadCalories()
   }, [])
 
-  // const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
+  const [date, setDate] = useState('today');
+  const [caloriesBurned, setCaloriesBurned] = useState(0);
+  const handleDateChange = e => {
+    setDate(e.target.value)
+  }
+  const handleCaloriesBurnedChange = e => {
+    setCaloriesBurned(e.target.value)
+  }
 
-  // useEffect(() => {
-  //   d3.csv('/data/calories_burned_jan.csv', d=>({
-  //     date: d.date,
-  //     calories_burned: +d.calories_burned
-  //     }
-  //   )).then(d => {
-  //     setDataCaloriesBurned(d)
-  //   })
-  // }, [])
-
-  // const {calorieGoal} = props
-  const handleCaloriesClick = (val) => {
-    console.log(val + 1);
-    let date = 'today'
+  const submitCaloriesData = (e) => {
+    e.preventDefault();
     let caloriesData = {
       date,
-      calories_burned: val
+      calories_burned: +caloriesBurned
     }
     addCaloriesData(caloriesData)
   }
@@ -75,7 +46,20 @@ const CaloriesBurned = props => {
                 goal={calorieGoal}
               />
             </svg>
-            <button onClick={()=>handleCaloriesClick(500)}>Burn 500 Calories</button>
+            <form onSubmit={submitCaloriesData}>
+            <select name="date-selector" id="date-selector" value={date} onChange={handleDateChange}>
+              <option value="today"> Today </option>
+              <option value="1/31">1/31 </option>
+              <option value="1/30">1/30 </option>
+              <option value="1/29">1/29 </option>
+              <option value="1/28">1/28 </option>
+              <option value="1/27">1/27 </option>
+              <option value="1/26">1/26 </option>
+              <option value="1/25">1/25 </option>
+            </select>
+            <input type='text' placeholder='Calories Burned' onChange={handleCaloriesBurnedChange} value={caloriesBurned}></input>
+            </form>
+            {/* <button onClick={()=>handleCaloriesClick(500)}>Burn 500 Calories</button> */}
           </>
         }
     </div>

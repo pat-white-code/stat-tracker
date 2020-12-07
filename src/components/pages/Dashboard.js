@@ -51,7 +51,7 @@ const Dashboard = props => {
       {images.length > 0 && (
         <div>
           <button onClick={loadImages}>Get New Images</button>
-          <ButtonSpinner />
+          <ButtonSpinner>Load New Images</ButtonSpinner>
           <FormControl className={classes.formControl}>
             <InputLabel id='img-data-display'>Data Display</InputLabel>
             <Select
@@ -88,6 +88,7 @@ const Dashboard = props => {
           <ImgGrid images={images} />
         </div>
       )}
+      <ButtonSpinner>Get Inspired</ButtonSpinner>
       <button onClick={loadImages}>Get Inspired</button>
       <button onClick={badRequest}>Make Bad Request</button>
     </div>
