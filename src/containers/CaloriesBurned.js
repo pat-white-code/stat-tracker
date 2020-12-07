@@ -3,7 +3,8 @@ import { loadCalories } from '../redux/actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  calories: state.calories
+  caloriesData: state.caloriesData,
+  caloriesLoading: state.caloriesLoad
 })
 
 const mapDispatchToProsp = dispatch => ({

@@ -27,7 +27,8 @@ import BarChart from './data-viz/BarChart';
 
 const CaloriesBurned = props => {
   const {
-    calories,
+    caloriesData,
+    caloriesLoad,
     loadCalories,
     calorieGoal
   } = props;
@@ -35,6 +36,7 @@ const CaloriesBurned = props => {
   useEffect(()=> {
     loadCalories()
   }, [])
+  
   // const [dataCaloriesBurned, setDataCaloriesBurned] = useState([]);
 
   // useEffect(() => {
