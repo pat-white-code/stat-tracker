@@ -1,5 +1,5 @@
 import CaloriesBurned from '../components/CaloriesBurned';
-import { loadCalories } from '../redux/actions';
+import { addCaloriesData, loadCalories } from '../redux/actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProsp = dispatch => ({
-  loadCalories: ()=> dispatch(loadCalories())
+  loadCalories: ()=> dispatch(loadCalories()),
+  addCaloriesData: (caloriesData)=> dispatch(addCaloriesData(caloriesData))
 })
 
 export default connect(mapStateToProps, mapDispatchToProsp)(CaloriesBurned)

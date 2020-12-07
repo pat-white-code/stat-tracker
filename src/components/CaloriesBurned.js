@@ -28,9 +28,9 @@ import BarChart from './data-viz/BarChart';
 const CaloriesBurned = props => {
   const {
     caloriesData,
-    caloriesLoad,
     loadCalories,
-    calorieGoal
+    calorieGoal,
+    addCaloriesData
   } = props;
 
   useEffect(()=> {
@@ -50,6 +50,16 @@ const CaloriesBurned = props => {
   // }, [])
 
   // const {calorieGoal} = props
+  const handleCaloriesClick = (val) => {
+    console.log(val + 1);
+    let date = 'today'
+    let caloriesData = {
+      date,
+      calories_burned: val
+    }
+    addCaloriesData(caloriesData)
+  }
+
   return (
     <div>
       <h1>Calories Burned this Month</h1>
@@ -65,7 +75,7 @@ const CaloriesBurned = props => {
                 goal={calorieGoal}
               />
             </svg>
-            <button>Burn 500 Calories</button>
+            <button onClick={()=>handleCaloriesClick(500)}>Burn 500 Calories</button>
           </>
         }
     </div>
