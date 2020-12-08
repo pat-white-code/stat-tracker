@@ -28,14 +28,16 @@ const DataPoint = props => {
   }
 
   return (
-    <Tooltip title={
-      <React.Fragment>
-        <img src={url} alt={'img'} height="100" width="100" ></img>
-        <caption>Likes: {likes}, Downloads: {downloads}</caption>
-      </React.Fragment>} arrow>
-
-      <Circle onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} cx={x} cy={y} r={r} />
-    </Tooltip>
+    <a target="_blank" href={url} rel="noreferrer">
+      <Tooltip title={
+        <React.Fragment>
+          <img src={url} alt={'img'} height="100" width="100" ></img>
+          <caption>Likes: {likes}, Downloads: {downloads}</caption>
+        </React.Fragment>} arrow>
+  
+        <Circle onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} cx={x} cy={y} r={r} />
+      </Tooltip>
+    </a>
   );
 }
 

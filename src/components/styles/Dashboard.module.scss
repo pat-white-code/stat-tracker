@@ -11,7 +11,11 @@
     padding: 20px;
     text-align:  center;
   }
-  color: black;
+  & select {
+    margin: auto;
+    width: 200px;
+    padding: 10px;
+  }
 }
 
 .dashboardWrapper {

@@ -46,6 +46,7 @@ const Dashboard = props => {
         <h1>Calories Burned this Month</h1>
         <p> Set your calorie goal below, and see how your stats compare with your goal. Green means you've acheived your goal. Blue means you are in a satisfactory range. Red means you are 1000 calories before your goal. Also you can use the input to add "today's" calories, or add more calories to a recent day.</p>
         <CaloriesBurned calorieGoal={calorieGoal } />
+        <h2>Set Calorie Goal</h2>
         <select name="calorie-goal" id="calorie-goal" value={calorieGoal} onChange={handleCalorieChange}>
           <option value="500">500 Calories</option>
           <option value="1000">1000 Calories</option>
