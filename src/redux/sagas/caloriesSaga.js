@@ -5,11 +5,6 @@ import { fetchCaloriesData } from '../api';
 
 function* caloriesWatcher() {
   yield takeEvery(CALORIES.LOAD, caloriesLoader)
-  yield takeEvery(CALORIES.ADD, caloriesAddSaga)
-}
-
-function* caloriesAddSaga() {
-  yield put(addCaloriesData);
 }
 
 function* caloriesLoader() {
