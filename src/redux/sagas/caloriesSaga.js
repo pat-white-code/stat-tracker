@@ -1,4 +1,4 @@
-import { addCaloriesData, setCalories, setCaloriesError } from '../actions';
+import { setCalories, setCaloriesError } from '../actions';
 import { CALORIES } from '../constants';
 import { takeEvery, call, put } from "redux-saga/effects";
 import { fetchCaloriesData } from '../api';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './UserLogin.module.scss';
+import styles from '../styles/UserLogin.module.scss';
 import Button from '../ui/Button';
 
 const UserLogin = () => {

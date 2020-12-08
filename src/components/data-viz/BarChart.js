@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import * as d3 from 'd3';
-import './BarChart.scss';
+import '../styles/BarChart.scss';
 import Axis from './Axis';
 import { meetsGoal } from '../../snippets/meetsGoal';
 import Line from './Line';
