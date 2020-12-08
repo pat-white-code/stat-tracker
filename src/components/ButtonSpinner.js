@@ -42,11 +42,9 @@ const ButtonSpinner = props => {
 
   const {
     loading,
-    loadImages
+    loadImages,
+    query
   } = props
-  // const [loading, setLoading] = React.useState(false);
-  // const [success, setSuccess] = React.useState(false);
-  // const timer = React.useRef();
 
   const buttonClassname = clsx({
     [classes.buttonSuccess]: !loading,

@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ButtonSpinner from '../../containers/ButtonSpinner';
+import styles from '../styles/Dashboard.module.scss'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = props => {
+  const  {
+    caloriesBurnedSection
+  } = styles;
   const classes = useStyles();
   const {loadImages, badRequest, images} = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
@@ -36,22 +40,29 @@ const Dashboard = props => {
     setCalorieGoal(e.target.value)
   }
   return (
-    <div>
-      <select name="calorie-goal" id="calorie-goal" value={calorieGoal} onChange={handleCalorieChange}>
-        <option value="500">500 Calories</option>
-        <option value="1000">1000 Calories</option>
-        <option value="1500">1500 Calories</option>
-        <option value="2000">2000 Calories</option>
-        <option value="2500">2500 Calories</option>
-        <option value="3000">3000 Calories</option>
-        <option value="4000">4000 Calories</option>
-      </select>
-      <CaloriesBurned calorieGoal={calorieGoal } />
-      <NutriPie />
+    <div className={'hi'}>
+      <div className={caloriesBurnedSection}>
+        <CaloriesBurned calorieGoal={calorieGoal } />
+        <select name="calorie-goal" id="calorie-goal" value={calorieGoal} onChange={handleCalorieChange}>
+          <option value="500">500 Calories</option>
+          <option value="1000">1000 Calories</option>
+          <option value="1500">1500 Calories</option>
+          <option value="2000">2000 Calories</option>
+          <option value="2500">2500 Calories</option>
+          <option value="3000">3000 Calories</option>
+          <option value="4000">4000 Calories</option>
+        </select>
+      </div>
+      <div className={caloriesBurnedSection}><NutriPie /></div>
+      <div className={caloriesBurnedSection}>
+        <h1>Get Inspired</h1>
+        <p>Fetch Images from unsplash API that will motivate you to achieve your desired goals.</p>
+        <ButtonSpinner query={'fitness'}>Fitness</ButtonSpinner>
+        <ButtonSpinner query={'mindfulness'}>Mindfulness</ButtonSpinner>
+        <ButtonSpinner query={'craftbeer'}>Craft Beer</ButtonSpinner>
+      </div>
       {images.length > 0 && (
         <div>
-          <button onClick={loadImages}>Get New Images</button>
-          <ButtonSpinner>Load New Images</ButtonSpinner>
           <FormControl className={classes.formControl}>
             <InputLabel id='img-data-display'>Data Display</InputLabel>
             <Select
@@ -88,9 +99,6 @@ const Dashboard = props => {
           <ImgGrid images={images} />
         </div>
       )}
-      <ButtonSpinner>Get Inspired</ButtonSpinner>
-      <button onClick={loadImages}>Get Inspired</button>
-      <button onClick={badRequest}>Make Bad Request</button>
     </div>
   )
 }

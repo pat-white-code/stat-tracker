@@ -44,11 +44,6 @@ const NutriComp = () => {
         <DonutChart height={300} width={300} data={nutrition} />
         {/* <DonutChart x={250} y={250} r={100} data={nutrition} /> */}
       </svg>
-      <button value="burger" onClick={handleClick}>Add Burger</button>
-      <button>Chicken</button>
-      <button>Pizza</button>
-      <button>Salad</button>
-      <button>Oatmeal</button>
     </div>
   )
 }

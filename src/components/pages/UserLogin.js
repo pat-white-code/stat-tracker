@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/UserLogin.module.scss';
 import Button from '../ui/Button';
+import { Link } from 'react-router-dom';
 
 const UserLogin = () => {
   const [userType, setUserType] = useState('new-user')
@@ -43,9 +44,11 @@ const UserLogin = () => {
               {userType === 'existing-user' && (
                 <input className={existingUser} type='text' autoFocus placeholder='Enter Email Address'></input>
               )}
-            <Button actionButton='actionButton'>
-              Continue
-            </Button>
+            <Link to='/dashboard'>
+              <Button actionButton='actionButton'>
+                Continue
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
