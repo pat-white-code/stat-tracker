@@ -1,8 +1,7 @@
 import { IMAGES, IMG_DATA, CALORIES } from './constants';
-import caloriesError from './reducers/caloriesError';
 
-export const loadImages = () => {
-  return {type: IMAGES.LOAD}
+export const loadImages = (query) => {
+  return {type: IMAGES.LOAD, payload: query}
 }
 
 export const setImages = images => {

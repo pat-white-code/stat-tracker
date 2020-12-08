@@ -52,7 +52,7 @@ const ButtonSpinner = props => {
 
 
   const handleClick = () => {
-    loadImages();
+    loadImages(query);
   };
 
   return (

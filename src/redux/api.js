@@ -14,6 +14,7 @@ export const fetchImagesByUser = async(userId) => {
 }
 
 export const fetchImages = async(query='fitness') => {
+  console.log('query', query);
   const url = `https://api.unsplash.com/photos/random/?query=${query}&client_id=I0xGcimco-2dGPdxoNOFryg7kR0POqneNyXiwhbUgKM&count=12&orientation=squarish`
   try {
     const res = await axios.get(url)

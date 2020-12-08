@@ -25,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = props => {
   const  {
-    caloriesBurnedSection
+    datavizSection,
+    dashboardWrapper
   } = styles;
   const classes = useStyles();
-  const {loadImages, badRequest, images} = props;
+  const { images } = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
   const [ imgDataDisplay, setImgDataDisplay ] = useState('scatter')
 
@@ -40,8 +41,10 @@ const Dashboard = props => {
     setCalorieGoal(e.target.value)
   }
   return (
-    <div className={'hi'}>
-      <div className={caloriesBurnedSection}>
+    <div className={dashboardWrapper}>
+      <div className={datavizSection}>
+        <h1>Calories Burned this Month</h1>
+        <p> Set your calorie goal below, and see how your stats compare with your goal. Green means you've acheived your goal. Blue means you are in a satisfactory range. Red means you are 1000 calories before your goal. Also you can use the input to add "today's" calories, or add more calories to a recent day.</p>
         <CaloriesBurned calorieGoal={calorieGoal } />
         <select name="calorie-goal" id="calorie-goal" value={calorieGoal} onChange={handleCalorieChange}>
           <option value="500">500 Calories</option>
@@ -53,13 +56,11 @@ const Dashboard = props => {
           <option value="4000">4000 Calories</option>
         </select>
       </div>
-      <div className={caloriesBurnedSection}><NutriPie /></div>
-      <div className={caloriesBurnedSection}>
+      <div className={datavizSection}><NutriPie /></div>
+      <div className={datavizSection}>
         <h1>Get Inspired</h1>
-        <p>Fetch Images from unsplash API that will motivate you to achieve your desired goals.</p>
-        <ButtonSpinner query={'fitness'}>Fitness</ButtonSpinner>
-        <ButtonSpinner query={'mindfulness'}>Mindfulness</ButtonSpinner>
-        <ButtonSpinner query={'craftbeer'}>Craft Beer</ButtonSpinner>
+        <p>Fetch Images from unsplash API that will motivate you to achieve your desired goals. Change the data display to see different information about the photos. Hover over any dot to see what image it represents.</p>
+        <ButtonSpinner query={'fitness'}>Fetch Images</ButtonSpinner>
       </div>
       {images.length > 0 && (
         <div>

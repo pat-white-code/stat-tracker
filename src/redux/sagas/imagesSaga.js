@@ -4,8 +4,8 @@ import { setImages, badRequest, setErrors } from '../actions';
 import { fetchImages } from '../api';
 
 function* imagesWatcher() {
-  yield takeEvery(IMAGES.LOAD, imagesLoadSaga)
-  yield takeEvery('BAD_REQUEST', badRequest)
+  yield takeEvery(IMAGES.LOAD, imagesLoadSaga);
+  yield takeEvery('BAD_REQUEST', badRequest);
 }
 
 function* imagesLoadSaga() {
