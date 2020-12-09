@@ -1,6 +1,10 @@
 // @import '/src/sass/variables.scss';
 @import './sass/variables.scss';
 
+a{
+  text-decoration: none;
+}
+
 * {
   margin:0;
 }

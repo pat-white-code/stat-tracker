@@ -1,11 +1,16 @@
-import { takeEvery, put, call} from 'redux-saga/effects';
+import { takeEvery, put, call, take} from 'redux-saga/effects';
 import { IMAGES } from '../constants';
 import { setImages, badRequest, setErrors } from '../actions';
 import { fetchImages } from '../api';
 
+// function* imagesWatcher() {
+//   yield takeEvery(IMAGES.LOAD, imagesLoadSaga);
+//   yield takeEvery('BAD_REQUEST', badRequest);
+// }
+
 function* imagesWatcher() {
   yield takeEvery(IMAGES.LOAD, imagesLoadSaga);
-  yield takeEvery('BAD_REQUEST', badRequest);
+  yield takeEvery('BAD_REQUEST', badRequest); 
 }
 
 function* imagesLoadSaga() {

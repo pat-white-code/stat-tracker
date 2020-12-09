@@ -1,4 +1,4 @@
-import { IMAGES, IMG_DATA, CALORIES } from './constants';
+import { IMAGES, IMG_DATA, CALORIES, RELATED_IMGS } from './constants';
 
 export const loadImages = (query) => {
   return {type: IMAGES.LOAD, payload: query}
@@ -34,4 +34,18 @@ export const setCaloriesError = err => {
 
 export const addCaloriesData = caloriesData => ({
   type: CALORIES.ADD, payload: caloriesData
+})
+
+export const loadRelatedImages = userId => ({
+  type: RELATED_IMGS.LOAD
+})
+
+export const setRelatedImages = ({userId, imgId, relatedImages}) => ({
+  type: RELATED_IMGS.LOAD_SUCCESS,
+  payload: {userId, imgId, relatedImages}
+})
+
+export const setRelatedImagesErr = ({imgId, err}) => ({
+  type: RELATED_IMGS.LOAD_FAIL,
+  payload: {imgId, err}
 })

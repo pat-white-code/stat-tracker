@@ -4,7 +4,8 @@ const state = {
   error: null,
   caloriesLoading: false,
   caloriesError: null,
-  caloriesData: []
+  caloriesData: [],
+  relatedImages: {}
 }
 
 export default state;
