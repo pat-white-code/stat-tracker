@@ -10,33 +10,6 @@ const NutriComp = () => {
     ).then(d => setNutrition(d))
   }, [])
 
-  const foods = {
-    burger: {
-      fat: 10,
-      carbs: 20,
-      protein: 30
-    }
-  }
-
-  const handleClick = e => {
-    console.log(e.target.value);
-    const food = foods[e.target.value];
-    const stateModel = [
-      {
-        nutrition: 'fat',
-        calories: nutrition[0].calories + food["fat"]
-      },
-      {
-        nutrition: 'carbs',
-        calories: nutrition[1].calories + food["carbs"]
-      },
-      {
-        nutrition: 'protein',
-        calories: nutrition[2].calories + food["protein"]
-      },
-    ];
-    setNutrition(stateModel)
-  }
   const addBeer = () => {
     let nutritionClone = [...nutrition];
     const carbsIndex = nutritionClone.findIndex(elem => elem.nutrition === 'carbs');
