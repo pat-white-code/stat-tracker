@@ -13,6 +13,21 @@ export const fetchImagesByUser = async(userId) => {
   }
 }
 
+export const mockFetchImagesByUser = async (userId) => {
+  console.log('MOCK USER ID', userId)
+  let relatedImages;
+  await setTimeout(1000, ()=> {
+    relatedImages = [
+      `${userId}_img1`, `${userId}_img2`, `${userId}_img3`
+    ]
+  })
+  relatedImages = [
+    `${userId}_img1`, `${userId}_img2`, `${userId}_img3`
+  ]
+  console.log('RELATED IMAGES: ', relatedImages)
+  return relatedImages
+}
+
 export const fetchImages = async(query='fitness') => {
   console.log('query', query);
   const url = `https://api.unsplash.com/photos/random/?query=${query}&client_id=I0xGcimco-2dGPdxoNOFryg7kR0POqneNyXiwhbUgKM&count=12&orientation=squarish`

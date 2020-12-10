@@ -27,4 +27,4 @@ const relatedImagesData = (state = {}, action) => {
   }
 }
 
-export default relatedImagesData.js
+export default relatedImagesData

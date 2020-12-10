@@ -61,8 +61,7 @@ const Dashboard = props => {
       <div className={datavizSection}>
         <h1>Get Inspired</h1>
         <p>Fetch Images from unsplash API that will motivate you to achieve your desired goals. Change the data display to see different information about the photos. Hover over any dot to see what image it represents.</p>
-        <ButtonSpinner query={'fitness'}>Fetch Images</ButtonSpinner>
-        <ButtonSpinner query={'beers'}>Fetch Beers</ButtonSpinner>
+        <ButtonSpinner query={'fitness'}>{images.length < 1 ? 'Fetch Images' : 'Load New Images'}</ButtonSpinner>
       </div>
       {images.length > 0 && (
         <div>
