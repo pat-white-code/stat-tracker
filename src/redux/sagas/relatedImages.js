@@ -3,7 +3,7 @@ import { IMAGES } from '../constants';
 import { fetchImagesByUser, mockFetchImagesByUser } from '../api';
 import { setRelatedImages } from '../actions';
 
-
+// Not being used, to prevent Rate Limit crashing. Using mockHandler instead
 function* handleRelatedImages(userId, imgId) {
   console.log('USERID ', userId)
   const relatedImages = yield call(fetchImagesByUser, userId);
@@ -11,6 +11,7 @@ function* handleRelatedImages(userId, imgId) {
   console.log('imgId', imgId)
   yield put(setRelatedImages({imgId, userId, relatedImages}))
 }
+
 function* mockHandleRelatedImages(userId, imgId) {
   console.log('USERID ', userId)
   const relatedImages = yield call(mockFetchImagesByUser, userId);

@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import DonutChart from './data-viz/DonutChart';
 
 const NutriComp = () => {
-  const [nutrition, setNutrition] = useState(null);
+  const [nutrition, setNutrition] = useState([]);
   useEffect(()=> {
     d3.csv('/data/nutrition.csv', d => ({
       nutrition: d.nutrition, calories: +d.calories})

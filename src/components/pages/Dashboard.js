@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CaloriesBurned from '../../containers/CaloriesBurned';
 import NutriPie from '../NutriPie';
 import ScatterPlot from '../data-viz/ScatterPlot';
@@ -10,7 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ButtonSpinner from '../../containers/ButtonSpinner';
-import styles from '../styles/Dashboard.module.scss'
+import styles from '../styles/Dashboard.module.scss';
+import * as d3 from 'd3';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +32,7 @@ const Dashboard = props => {
   const classes = useStyles();
   const { images } = props;
   const [calorieGoal, setCalorieGoal] = useState(1500);
-  const [ imgDataDisplay, setImgDataDisplay ] = useState('scatter')
+  const [ imgDataDisplay, setImgDataDisplay ] = useState('scatter');
 
   const handleImgDataDisplayChange = (e) => {
     setImgDataDisplay(e.target.value)
