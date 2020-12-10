@@ -37,9 +37,16 @@ const NutriComp = () => {
     ];
     setNutrition(stateModel)
   }
+  const addProtein = () => {
+    let nutritionClone = [...nutrition];
+    const proteinIdx = nutritionClone.findIndex(elem => elem.nutrition === 'protein');
+    nutritionClone[proteinIdx].calories += 10;
+    setNutrition(nutritionClone);
+  }
   return(
     <div>
       <h1>A breakdown of your nutrition</h1>
+      <button onClick={addProtein}>add protein</button>
       <svg height={400} width={400}>
         <DonutChart height={300} width={300} data={nutrition} />
         {/* <DonutChart x={250} y={250} r={100} data={nutrition} /> */}
