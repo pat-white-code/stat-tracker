@@ -18,7 +18,7 @@ const DonutChart = ({data, height, width}) => {
       {pie(data).map((d, i) => (
         <g className='arc'>
           <Path fill={color(i)} d={arc(d)}></Path>
-
+          <text transform={`translate(${arc.centroid(d)})`}>{data[i].nutrition}</text>
         </g>
       ))}
     </g>
